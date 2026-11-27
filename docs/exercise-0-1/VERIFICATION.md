@@ -12,6 +12,7 @@
 | Base commit | `0edb6688a4cd711a6150a01790ff981ce66ad1ad` | Local and origin/main matched |
 | Exercise branch | `exercise/0-1` | Observed |
 | Documentation commit | `f741da24a3f134bf090855b1351d77ab96ecd6e4` | Local and remote matched |
+| Reducer commit | `d0a666338d780ffda8c07140ccf65255bf6ab828` | Local and remote matched |
 
 ## Starter verification before Exercise 0.1
 
@@ -28,23 +29,26 @@ The BASE results do not verify Exercise 0.1.
 
 | ID | Acceptance criteria | Command or action | Actual result | Status |
 | --- | --- | --- | --- | --- |
-| V-01 | AC-01, AC-02, reducer portions of AC-04 and AC-05 | `node --test tests/appReducer.test.js` | Five tests passed; zero failed; exit code 0 | PASS |
-| V-02 | AC-03, AC-06, AC-07 | Review Context and JSX code; run `npm run lint` after integration | Context and JSX not implemented yet | NOT_RUN |
-| V-03 | AC-03, AC-06 | `npm run build` after integration | Not run after exercise changes | NOT_RUN |
-| V-04 | AC-02, AC-04, AC-05 | Open the page and test theme and tab changes | Not checked | NOT_RUN |
-| V-05 | AC-08 | Test controls using Tab, Enter, and Space | Not checked | NOT_RUN |
-| V-06 | Git completion | Review staged diff, push, and compare local and remote commit hashes | Not performed for the implementation | NOT_RUN |
+| V-01 | AC-01, AC-02, reducer portions of AC-04 and AC-05 | `node --test tests/appReducer.test.js` | Five tests passed at reducer milestone; latest run after provider integration exited 0, but its test count was not included in the shared excerpt | PASS |
+| V-02 | AC-03 and provider portion of AC-07 | Review `AppContexts.js`, `AppProvider.jsx`, and `main.jsx`; run `npm run lint` | Two separate Contexts and `useReducer` provider observed; lint exit code 0 | PASS |
+| V-03 | AC-03 and provider JSX portion of AC-06 | `npm run build` after provider integration | Vite v8.4.0 transformed 23 modules; build exit code 0 | PASS |
+| V-04 | AC-02, AC-04, AC-05 | Open the page and test theme and tab changes | Controls not implemented yet | NOT_RUN |
+| V-05 | AC-08 | Test controls using Tab, Enter, and Space | Controls not implemented yet | NOT_RUN |
+| V-06 | Git completion | Review staged diff, push, and compare local and remote commit hashes | Not performed for the provider milestone | NOT_RUN |
+| V-07 | AC-06 and UI portion of AC-07 | Review final JSX and run lint and build after UI integration | UI not implemented yet | NOT_RUN |
 
 ### RED and GREEN log
 
 - RED: `node --test tests/appReducer.test.js` failed with exit code 1 while `src/context/appReducer.js` did not exist. One test file failed before its five assertions could run. This is missing-module RED evidence, not a behavioral assertion failure.
 - GREEN: After adding `src/context/appReducer.js`, the same command reported five tests passed, zero failed, exit code 0.
-- Current reducer lint: `npm run lint` completed with exit code 0 after adding the reducer and test file. This does not verify the Context or UI that has not been implemented.
+- Provider milestone: The latest reducer test run exited 0; lint exited 0; build exited 0. These results verify the current code only, not the future theme and tab interface.
 
 ## Code review notes
 
-The reducer returns new objects for known actions and the original state for an unknown action. It contains no observed DOM, network, or storage calls. The test freezes its inputs for one transition and checks deterministic output. These checks do not establish that the future React integration works.
+The reducer returns new objects for known actions and the original state for an unknown action. It contains no observed DOM, network, or storage calls. The test freezes its inputs for one transition and checks deterministic output.
+
+`AppContexts.js` defines separate state and dispatch contexts. `AppProvider.jsx` passes the reducer state and dispatch through those providers. `main.jsx` wraps `App` with `AppProvider`. Build success confirms the imported modules compile; browser behavior remains to be checked.
 
 ## Current limitations
 
-The Context providers and user interface have not been implemented. Theme behavior in the browser, tab interaction, keyboard interaction, and the exercise integration build remain unverified.
+Theme behavior in the browser, tab interaction, keyboard interaction, and final UI lint and build remain unverified. The provider milestone has not yet been committed and pushed.

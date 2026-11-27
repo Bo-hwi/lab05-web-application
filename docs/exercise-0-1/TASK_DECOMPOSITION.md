@@ -31,8 +31,8 @@ Split Context prevents a dispatch-only consumer from receiving State Context upd
 | --- | --- | --- | --- | --- |
 | T0 | Confirm the branch and scope; create the three documentation files | None | DONE | Documentation commit `f741da2` pushed; branch confirmed; files reviewed |
 | T1 | Write reducer tests and record RED only if actually observed | T0 | DONE | Missing-module RED observed; five tests later passed, see VERIFICATION.md |
-| T2 | Implement the pure reducer and initial state | T1 | DONE | Five unit tests passed; code reviewed for side effects and mutation |
-| T3 | Add the two Contexts and AppProvider | T2 | TODO | Code review, lint, and build required |
+| T2 | Implement the pure reducer and initial state | T1 | DONE | Five unit tests passed; code reviewed; commit `d0a6663` pushed |
+| T3 | Add the two Contexts and AppProvider | T2 | DONE | Files reviewed; test exit 0; lint exit 0; build exit 0 |
 | T4 | Connect the theme and tab controls to application state | T3 | TODO | Browser, mouse, and keyboard checks required |
 | T5 | Run final checks, update documentation, and push the branch | T4 | TODO | Test, lint, build, staged diff, and remote commit hash required |
 
@@ -43,8 +43,8 @@ Move a task to DONE only after recording suitable evidence in VERIFICATION.md.
 Exercise 0.1 is small. Plan approximately four to six meaningful commits instead of creating artificial changes to reach fifteen.
 
 1. `docs: plan exercise 0.1 acceptance criteria and verification` (completed, `f741da2`)
-2. `feat: implement and test pure app reducer` (in progress)
-3. `feat: provide separate app state and dispatch contexts`
+2. `feat: implement and test pure app reducer` (completed, `d0a6663`)
+3. `feat: provide separate app state and dispatch contexts` (in progress)
 4. `feat: connect theme and tab controls to app state`
 5. `docs: record exercise 0.1 verification and audit`
 
