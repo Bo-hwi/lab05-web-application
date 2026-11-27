@@ -11,9 +11,6 @@
 | Vite | v8.4.0 in build and dev-server output | Observed |
 | Base commit | `0edb6688a4cd711a6150a01790ff981ce66ad1ad` | Local and origin/main matched |
 | Exercise branch | `exercise/0-1` | Observed |
-| Documentation commit | `f741da24a3f134bf090855b1351d77ab96ecd6e4` | Local and remote matched |
-| Reducer commit | `d0a666338d780ffda8c07140ccf65255bf6ab828` | Local and remote matched |
-| Provider commit | `6a776ca9e3b2950f2f9d2ae0eb3563ce918a3e6e` | Local and remote matched |
 
 ## Starter verification before Exercise 0.1
 
@@ -33,10 +30,11 @@ The BASE results do not verify Exercise 0.1.
 | V-01 | AC-01, AC-02, reducer portions of AC-04 and AC-05 | `node --test tests/appReducer.test.js` | Five tests passed at the reducer milestone; final run after the UI fix exited 0, but its test count was not included in the shared excerpt | PASS |
 | V-02 | AC-03 and provider portion of AC-07 | Review Context and provider code; run `npm run lint` | Separate Contexts and `useReducer` provider observed; provider lint exit 0 | PASS |
 | V-03 | AC-03 and provider JSX portion of AC-06 | `npm run build` after provider integration | Vite v8.4.0 transformed 23 modules; build exit 0 | PASS |
-| V-04 | AC-02, AC-04, AC-05 | Browser checks for theme and sections | Screenshots show light/Reels/Off and dark/Evidence/On; student reports reverse transitions passed | PASS |
-| V-05 | AC-08 | Tab, Enter, Space, and narrow-width checks | Student reports all passed; no separate keyboard or mobile capture provided | PASS |
-| V-06 | Git completion | Review staged diff, push, and compare local and remote hashes | Not completed for the UI milestone | NOT_RUN |
+| V-04 | AC-02, AC-04, AC-05 | Browser checks for theme and sections | Screenshots show light/Reels/Off and dark/Evidence/On; student reported reverse transitions passed | PASS |
+| V-05 | AC-08 | Tab, Enter, Space, and narrow-width checks | Student reported all passed; no separate keyboard or mobile capture provided | PASS |
+| V-06 | Git completion for UI | Inspect staged files and whitespace; push; compare hashes | Six UI and documentation files staged; `git diff --cached --check` produced no errors; local and remote matched at `86f40aa3f16393af7b7118504988135d67b5b9e8` | PASS |
 | V-07 | AC-06 and UI portion of AC-07 | Review final JSX; rerun lint and build after AI-02 fix | JSX reviewed; lint exited 0; Vite v8.4.0 transformed 20 modules and build exited 0 | PASS |
+| V-08 | Final documentation synchronization | Push this documentation commit; compare local and remote hashes | To be checked after this commit is pushed | NOT_RUN |
 
 ### RED and GREEN log
 
@@ -54,6 +52,6 @@ The reducer returns new objects for known actions and the original state for unk
 
 The final `ThemeToggle` keeps the button label `Dark theme` stable while `aria-pressed` changes. The visible On/Off status is a separate `aria-hidden` element. The Reels and Evidence buttons have stable labels and `aria-pressed` states. Screenshots demonstrate two combinations of theme and active section. Keyboard and narrow-width results are based on the student's report.
 
-## Current limitations
+## Limitations
 
-No assistive-technology or React DevTools Profiler measurement has been performed; neither result is claimed. The final test run's count was not included in the shared excerpt. The UI milestone has not yet been committed and pushed.
+No assistive-technology or React DevTools Profiler measurement was performed; neither result is claimed. The final test run's count was not included in the shared excerpt. Final documentation synchronization is checked separately after its push.

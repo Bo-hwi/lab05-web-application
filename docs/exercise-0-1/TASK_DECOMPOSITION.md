@@ -6,7 +6,7 @@ Source: Lab 5 Web.pdf, page 7, Exercise 0.1.
 
 Manage the theme and active tab with a pure reducer. Expose state and dispatch through separate React Contexts. Build a minimal interface to demonstrate and verify both behaviors.
 
-The repository initially contained only the Vite starter. There was no legacy React 3 or React 6 implementation to refactor. The legacy defects described in the assignment are requirements for the new implementation, not defects previously observed in this repository.
+The repository initially contained only the Vite starter. There was no legacy React 3 or React 6 implementation to refactor. The legacy defects described in the assignment were requirements for the new implementation, not defects previously observed in this repository.
 
 Out of scope: pagination, reels, backend APIs, Firebase, WebSockets, WebMCP, and Sprint 1.
 
@@ -33,28 +33,26 @@ Split Context prevents a dispatch-only consumer from receiving State Context upd
 | T1 | Write reducer tests and record RED only if actually observed | T0 | DONE | Missing-module RED observed; five tests later passed |
 | T2 | Implement the pure reducer and initial state | T1 | DONE | Five tests passed; code reviewed; commit `d0a6663` pushed |
 | T3 | Add the two Contexts and AppProvider | T2 | DONE | Files reviewed; test, lint, and build exited 0; commit `6a776ca` pushed |
-| T4 | Connect the theme and tab controls to application state | T3 | DONE | Code reviewed; two browser states shown; student reports mouse, keyboard, responsive, lint, and build checks passed |
-| T5 | Run final checks, update documentation, and push the branch | T4 | IN_PROGRESS | Final command output, staged diff, commit, and remote hash pending |
+| T4 | Connect the theme and tab controls to application state | T3 | DONE | Code reviewed; two browser states shown; student reported mouse, keyboard, and responsive checks passed; commit `86f40aa` pushed |
+| T5 | Run final checks, update documentation, and push the exercise branch | T4 | DONE | Final test, lint, and build exited 0; staged UI diff reviewed; UI commit `86f40aa` matched the remote; final documentation recorded in this commit |
 
-Move a task to DONE only after recording suitable evidence in VERIFICATION.md.
+## Commit record
 
-## Commit plan
+Exercise 0.1 required five meaningful commits. Approximately fifteen commits would have required artificial changes for this scope.
 
-Exercise 0.1 is small. Plan approximately four to six meaningful commits instead of creating artificial changes to reach fifteen.
+1. `f741da2` `docs: plan exercise 0.1 acceptance criteria and verification`
+2. `d0a6663` `feat: implement and test pure app reducer`
+3. `6a776ca` `feat: provide separate app state and dispatch contexts`
+4. `86f40aa` `feat: connect theme and tab controls to app state`
+5. `docs: record exercise 0.1 final verification and audit` (this documentation commit)
 
-1. `docs: plan exercise 0.1 acceptance criteria and verification` (completed, `f741da2`)
-2. `feat: implement and test pure app reducer` (completed, `d0a6663`)
-3. `feat: provide separate app state and dispatch contexts` (completed, `6a776ca`)
-4. `feat: connect theme and tab controls to app state` (in progress)
-5. `docs: record exercise 0.1 final verification and audit`
-
-Before each commit, stage only exercise-related files, review the staged diff, run relevant checks, and update documentation whenever status, evidence, or observed failures change.
+Before each implementation commit, only exercise-related files were staged and the staged file list and whitespace check were reviewed.
 
 ## Completion criteria
 
-- AC-01 through AC-08 have appropriate evidence in VERIFICATION.md.
-- Actual AI-generated defects are recorded in AI_FAILURE_AUDIT.md.
-- Tests, lint, and build have been run on this exercise branch, with actual results recorded.
-- The interface has been checked in a browser.
-- The working tree is clean and local HEAD matches remote `exercise/0-1`.
+- AC-01 through AC-08 have evidence in VERIFICATION.md, with the source of each result identified.
+- The two observed AI failures are recorded in AI_FAILURE_AUDIT.md.
+- Tests, lint, and build ran on the exercise branch with exit code 0 after the final UI correction.
+- The interface was checked in a browser; keyboard and narrow-width results were reported by the student.
+- The final documentation commit must be pushed and its local hash compared with the remote hash before handoff.
 - The exercise branch has not been merged into `main`.
