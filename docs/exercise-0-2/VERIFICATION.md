@@ -35,3 +35,11 @@
 ## Current limitations
 
 Exercise 0.2 has not been implemented. All exercise-specific behavior remains unverified.
+
+## Progress verification
+
+- Pagination: The student reports that page navigation and boundary checks passed. Exact browser observations were not captured in the shared output.
+- Responsive layout: The student reports that the layout check passed after adding the named container query and `100dvh`.
+- Lint and build: The student reports both passed after the implementation. Exact exit codes and final command output were not included in the shared output.
+- Stable clip keys: The component maps clips with `key={clip._id}`.
+- Render-time pagination: `totalPages`, `startIndex`, and `visibleItems` are calculated during render. No effect stores the sliced page.

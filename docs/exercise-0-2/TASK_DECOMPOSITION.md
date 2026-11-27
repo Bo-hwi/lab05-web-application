@@ -58,3 +58,11 @@ Adjust the plan to match actual changes. Stage only files for this exercise and 
 - Lint and build results are recorded after implementation.
 - The branch is pushed and local HEAD matches remote `exercise/0-2`.
 - The exercise branch is not merged into `main`.
+
+## Progress update
+
+- T0: DONE. Exercise branch and initial documentation created.
+- T1: DONE. Local clip fixture and EvidenceGrid rendered; student reports the clip display check passed.
+- T2: DONE. Student reports pagination checks passed.
+- T3: DONE. Student reports responsive layout checks passed.
+- T4: IN_PROGRESS. Final verification, documentation review, commit, and push remain.
