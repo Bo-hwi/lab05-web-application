@@ -11,6 +11,7 @@
 | Vite | v8.4.0 in build and dev-server output | Observed |
 | Base commit | `0edb6688a4cd711a6150a01790ff981ce66ad1ad` | Local and origin/main matched |
 | Exercise branch | `exercise/0-1` | Observed |
+| Documentation commit | `f741da24a3f134bf090855b1351d77ab96ecd6e4` | Local and remote matched |
 
 ## Starter verification before Exercise 0.1
 
@@ -23,23 +24,27 @@
 
 The BASE results do not verify Exercise 0.1.
 
-## Exercise 0.1 verification plan
+## Exercise 0.1 verification
 
-| ID | Acceptance criteria | Planned command or action | Actual result | Status |
+| ID | Acceptance criteria | Command or action | Actual result | Status |
 | --- | --- | --- | --- | --- |
-| V-01 | AC-01, AC-02, AC-04, AC-05 | Run reducer unit tests with the Node test runner | Not run | NOT_RUN |
-| V-02 | AC-03, AC-06, AC-07 | Review code and run `npm run lint` | Not run after exercise changes | NOT_RUN |
-| V-03 | AC-03, AC-06 | Run `npm run build` | Not run after exercise changes | NOT_RUN |
+| V-01 | AC-01, AC-02, reducer portions of AC-04 and AC-05 | `node --test tests/appReducer.test.js` | Five tests passed; zero failed; exit code 0 | PASS |
+| V-02 | AC-03, AC-06, AC-07 | Review Context and JSX code; run `npm run lint` after integration | Context and JSX not implemented yet | NOT_RUN |
+| V-03 | AC-03, AC-06 | `npm run build` after integration | Not run after exercise changes | NOT_RUN |
 | V-04 | AC-02, AC-04, AC-05 | Open the page and test theme and tab changes | Not checked | NOT_RUN |
 | V-05 | AC-08 | Test controls using Tab, Enter, and Space | Not checked | NOT_RUN |
-| V-06 | Git completion | Review staged diff, push, and compare local and remote commit hashes | Not performed for the exercise branch | NOT_RUN |
+| V-06 | Git completion | Review staged diff, push, and compare local and remote commit hashes | Not performed for the implementation | NOT_RUN |
 
 ### RED and GREEN log
 
-- RED: No RED evidence has been observed. Record RED only after a test actually fails for the intended missing behavior.
-- GREEN: No GREEN evidence has been observed for Exercise 0.1.
-- For each test run, record the exact command, passing and failing counts, exit code, and relevant error details.
+- RED: `node --test tests/appReducer.test.js` failed with exit code 1 while `src/context/appReducer.js` did not exist. One test file failed before its five assertions could run. This is missing-module RED evidence, not a behavioral assertion failure.
+- GREEN: After adding `src/context/appReducer.js`, the same command reported five tests passed, zero failed, exit code 0.
+- Current reducer lint: `npm run lint` completed with exit code 0 after adding the reducer and test file. This does not verify the Context or UI that has not been implemented.
+
+## Code review notes
+
+The reducer returns new objects for known actions and the original state for an unknown action. It contains no observed DOM, network, or storage calls. The test freezes its inputs for one transition and checks deterministic output. These checks do not establish that the future React integration works.
 
 ## Current limitations
 
-Exercise 0.1 has not been implemented. Reducer purity, theme behavior, tab behavior, keyboard interaction, and exercise-specific lint and build results remain unverified. A successful starter build does not establish that these requirements work.
+The Context providers and user interface have not been implemented. Theme behavior in the browser, tab interaction, keyboard interaction, and the exercise integration build remain unverified.

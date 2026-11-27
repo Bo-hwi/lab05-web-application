@@ -2,13 +2,9 @@
 
 ## Observed AI failures
 
-No AI failures recorded.
-
-Add an entry only when AI-generated guidance or code actually fails and there is observable evidence. Do not invent failures to fill the document.
-
 | ID | Task | Incorrect suggestion or behavior | Observed evidence | Root cause | Impact | Fix | Retest | Prevention |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| None | | | | | | | | |
+| AI-01 | T0, workspace cleanup | The suggested PowerShell guard compared the first line of an accidental diff-output file with an exact plain-text string | The command printed `No file removed. Check the matching file manually.` and `git status` still showed the untracked file | The file's first line contained ANSI color-control characters around the visible `diff --git` text; the exact string comparison could not match | Cleanup was delayed; no project file was deleted or changed by the failed command | Replaced exact equality with a substring regex while retaining checks for one file, its directory, and its size | The corrected command printed `Removed the accidental diff output file.`; `git status --short --branch` showed only `## exercise/0-1...origin/exercise/0-1` | Inspect raw text or match a verified substring when terminal output may contain ANSI control characters; retain narrow path and size checks before deletion |
 
 ## Anticipated risks, not observed failures
 
@@ -22,4 +18,4 @@ Add an entry only when AI-generated guidance or code actually fails and there is
 
 ## Update rule
 
-For each actual failure, record its task ID, observed output or behavior, root cause, correction, and retest result. Keep the statement “No AI failures recorded” until an actual AI failure is observed.
+For each actual failure, record its task ID, observed output or behavior, root cause, correction, and retest result. Do not add hypothetical failures to the observed-failures table.

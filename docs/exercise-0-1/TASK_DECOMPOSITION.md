@@ -6,7 +6,7 @@ Source: Lab 5 Web.pdf, page 7, Exercise 0.1.
 
 Manage the theme and active tab with a pure reducer. Expose state and dispatch through separate React Contexts. Build a minimal interface to demonstrate and verify both behaviors.
 
-The repository initially contains only the Vite starter. There is no legacy React 3 or React 6 implementation to refactor. The legacy defects described in the assignment are treated as requirements for the new implementation, not as defects already observed in this repository.
+The repository initially contained only the Vite starter. There was no legacy React 3 or React 6 implementation to refactor. The legacy defects described in the assignment are requirements for the new implementation, not defects previously observed in this repository.
 
 Out of scope: pagination, reels, backend APIs, Firebase, WebSockets, WebMCP, and Sprint 1.
 
@@ -27,14 +27,14 @@ Split Context prevents a dispatch-only consumer from receiving State Context upd
 
 ## Tasks
 
-| ID | Task | Dependencies | Status | Required evidence |
+| ID | Task | Dependencies | Status | Evidence |
 | --- | --- | --- | --- | --- |
-| T0 | Confirm the branch and scope; create the three documentation files | None | IN_PROGRESS | Correct branch; files created and reviewed |
-| T1 | Write reducer tests and record RED only if actually observed | T0 | TODO | Test command and actual output |
-| T2 | Implement the pure reducer and initial state | T1 | TODO | GREEN unit tests and purity review |
-| T3 | Add the two Contexts and AppProvider | T2 | TODO | Code review, lint, and build |
-| T4 | Connect the theme and tab controls to application state | T3 | TODO | Browser, mouse, and keyboard checks |
-| T5 | Run final checks, update documentation, and push the branch | T4 | TODO | Test, lint, build, staged diff, and remote commit hash |
+| T0 | Confirm the branch and scope; create the three documentation files | None | DONE | Documentation commit `f741da2` pushed; branch confirmed; files reviewed |
+| T1 | Write reducer tests and record RED only if actually observed | T0 | DONE | Missing-module RED observed; five tests later passed, see VERIFICATION.md |
+| T2 | Implement the pure reducer and initial state | T1 | DONE | Five unit tests passed; code reviewed for side effects and mutation |
+| T3 | Add the two Contexts and AppProvider | T2 | TODO | Code review, lint, and build required |
+| T4 | Connect the theme and tab controls to application state | T3 | TODO | Browser, mouse, and keyboard checks required |
+| T5 | Run final checks, update documentation, and push the branch | T4 | TODO | Test, lint, build, staged diff, and remote commit hash required |
 
 Move a task to DONE only after recording suitable evidence in VERIFICATION.md.
 
@@ -42,8 +42,8 @@ Move a task to DONE only after recording suitable evidence in VERIFICATION.md.
 
 Exercise 0.1 is small. Plan approximately four to six meaningful commits instead of creating artificial changes to reach fifteen.
 
-1. `docs: plan exercise 0.1 acceptance criteria and verification`
-2. `feat: implement and test pure app reducer`
+1. `docs: plan exercise 0.1 acceptance criteria and verification` (completed, `f741da2`)
+2. `feat: implement and test pure app reducer` (in progress)
 3. `feat: provide separate app state and dispatch contexts`
 4. `feat: connect theme and tab controls to app state`
 5. `docs: record exercise 0.1 verification and audit`
@@ -53,7 +53,7 @@ Adjust the plan to match actual changes. Before each commit, stage only exercise
 ## Completion criteria
 
 - AC-01 through AC-08 have appropriate evidence in VERIFICATION.md.
-- Any actual AI-generated defects are recorded in AI_FAILURE_AUDIT.md.
+- Actual AI-generated defects are recorded in AI_FAILURE_AUDIT.md.
 - Tests, lint, and build have been run on this exercise branch, with actual results recorded.
 - The interface has been checked in a browser.
 - The working tree is clean and local HEAD matches remote `exercise/0-1`.
