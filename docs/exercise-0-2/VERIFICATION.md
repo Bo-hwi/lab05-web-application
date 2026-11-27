@@ -35,6 +35,7 @@
 ## Current limitations
 
 Exercise 0.2 has not been implemented. All exercise-specific behavior remains unverified.
+This paragraph records the status at initial planning; the progress verification below supersedes it for completed work.
 
 ## Progress verification
 
