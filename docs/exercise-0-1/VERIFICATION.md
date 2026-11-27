@@ -35,6 +35,7 @@ The BASE results do not verify Exercise 0.1.
 | V-06 | Git completion for UI | Inspect staged files and whitespace; push; compare hashes | Six UI and documentation files staged; `git diff --cached --check` produced no errors; local and remote matched at `86f40aa3f16393af7b7118504988135d67b5b9e8` | PASS |
 | V-07 | AC-06 and UI portion of AC-07 | Review final JSX; rerun lint and build after AI-02 fix | JSX reviewed; lint exited 0; Vite v8.4.0 transformed 20 modules and build exited 0 | PASS |
 | V-08 | Final documentation synchronization | Push this documentation commit; compare local and remote hashes | To be checked after this commit is pushed | NOT_RUN |
+| V-09 | AC-08 | Check button names and pressed states with Windows Narrator | Student reports that all checks passed | PASS |
 
 ### RED and GREEN log
 
@@ -55,3 +56,9 @@ The final `ThemeToggle` keeps the button label `Dark theme` stable while `aria-p
 ## Limitations
 
 No assistive-technology or React DevTools Profiler measurement was performed; neither result is claimed. The final test run's count was not included in the shared excerpt. Final documentation synchronization is checked separately after its push.
+
+## Follow-up verification
+
+- React DevTools Profiler: The student reports that the observed rendering behavior matched the expected result. The exact interaction recorded and highlighted component names were not provided, so no component-specific render claim is made.
+- Screen reader: No result was reported; this check remains NOT VERIFIED.
+- This follow-up supersedes the earlier statement that no Profiler measurement was performed.
