@@ -1,121 +1,96 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
+import { useContext } from 'react'
+import { AppDispatchContext, AppStateContext } from './context/AppContexts.js'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+function ThemeToggle() {
+  const { theme } = useContext(AppStateContext)
+  const dispatch = useContext(AppDispatchContext)
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className="theme-setting">
+      <button
+        type="button"
+        className="control theme-toggle"
+        aria-pressed={theme === 'dark'}
+        onClick={() => dispatch({ type: 'TOGGLE_THEME' })}
+      >
+        Dark theme
+      </button>
+      <span className="theme-status" aria-hidden="true">
+        {theme === 'dark' ? 'On' : 'Off'}
+      </span>
+    </div>
+  )
+}
 
-      <div className="ticks"></div>
+function SectionControls() {
+  const { activeTab } = useContext(AppStateContext)
+  const dispatch = useContext(AppDispatchContext)
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+  return (
+    <div className="section-controls" role="group" aria-label="Archive sections">
+      <button
+        type="button"
+        className="control"
+        aria-pressed={activeTab === 'reels'}
+        onClick={() => dispatch({ type: 'SET_ACTIVE_TAB', payload: 'reels' })}
+      >
+        Reels
+      </button>
+      <button
+        type="button"
+        className="control"
+        aria-pressed={activeTab === 'evidence'}
+        onClick={() => dispatch({ type: 'SET_ACTIVE_TAB', payload: 'evidence' })}
+      >
+        Evidence
+      </button>
+    </div>
+  )
+}
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+function ActiveSection() {
+  const { activeTab } = useContext(AppStateContext)
+
+  const section = activeTab === 'reels'
+    ? {
+        title: 'Reels',
+        description: 'Short-video evidence will be presented here in a later exercise.',
+      }
+    : {
+        title: 'Evidence',
+        description: 'The evidence archive will be expanded in a later exercise.',
+      }
+
+  return (
+    <section className="section-panel" aria-live="polite" aria-labelledby="section-title">
+      <h2 id="section-title">{section.title}</h2>
+      <p>{section.description}</p>
+    </section>
+  )
+}
+
+function App() {
+  const { theme } = useContext(AppStateContext)
+
+  return (
+    <div className="app-shell" data-theme={theme}>
+      <main className="app-content">
+        <header className="app-header">
+          <div>
+            <p className="eyebrow">UIT Lab 5 | Exercise 0.1</p>
+            <h1>Evidence Archive</h1>
+            <p className="intro">
+              A small interface demonstrating pure reducer state and separate contexts.
+            </p>
+          </div>
+          <ThemeToggle />
+        </header>
+
+        <SectionControls />
+        <ActiveSection />
+      </main>
+    </div>
   )
 }
 

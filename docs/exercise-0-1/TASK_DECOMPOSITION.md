@@ -29,12 +29,12 @@ Split Context prevents a dispatch-only consumer from receiving State Context upd
 
 | ID | Task | Dependencies | Status | Evidence |
 | --- | --- | --- | --- | --- |
-| T0 | Confirm the branch and scope; create the three documentation files | None | DONE | Documentation commit `f741da2` pushed; branch confirmed; files reviewed |
-| T1 | Write reducer tests and record RED only if actually observed | T0 | DONE | Missing-module RED observed; five tests later passed, see VERIFICATION.md |
-| T2 | Implement the pure reducer and initial state | T1 | DONE | Five unit tests passed; code reviewed; commit `d0a6663` pushed |
-| T3 | Add the two Contexts and AppProvider | T2 | DONE | Files reviewed; test exit 0; lint exit 0; build exit 0 |
-| T4 | Connect the theme and tab controls to application state | T3 | TODO | Browser, mouse, and keyboard checks required |
-| T5 | Run final checks, update documentation, and push the branch | T4 | TODO | Test, lint, build, staged diff, and remote commit hash required |
+| T0 | Confirm the branch and scope; create the three documentation files | None | DONE | Documentation commit `f741da2` pushed; files reviewed |
+| T1 | Write reducer tests and record RED only if actually observed | T0 | DONE | Missing-module RED observed; five tests later passed |
+| T2 | Implement the pure reducer and initial state | T1 | DONE | Five tests passed; code reviewed; commit `d0a6663` pushed |
+| T3 | Add the two Contexts and AppProvider | T2 | DONE | Files reviewed; test, lint, and build exited 0; commit `6a776ca` pushed |
+| T4 | Connect the theme and tab controls to application state | T3 | DONE | Code reviewed; two browser states shown; student reports mouse, keyboard, responsive, lint, and build checks passed |
+| T5 | Run final checks, update documentation, and push the branch | T4 | IN_PROGRESS | Final command output, staged diff, commit, and remote hash pending |
 
 Move a task to DONE only after recording suitable evidence in VERIFICATION.md.
 
@@ -44,11 +44,11 @@ Exercise 0.1 is small. Plan approximately four to six meaningful commits instead
 
 1. `docs: plan exercise 0.1 acceptance criteria and verification` (completed, `f741da2`)
 2. `feat: implement and test pure app reducer` (completed, `d0a6663`)
-3. `feat: provide separate app state and dispatch contexts` (in progress)
-4. `feat: connect theme and tab controls to app state`
-5. `docs: record exercise 0.1 verification and audit`
+3. `feat: provide separate app state and dispatch contexts` (completed, `6a776ca`)
+4. `feat: connect theme and tab controls to app state` (in progress)
+5. `docs: record exercise 0.1 final verification and audit`
 
-Adjust the plan to match actual changes. Before each commit, stage only exercise-related files, review the staged diff, run relevant checks, and update documentation whenever status, evidence, or observed failures change.
+Before each commit, stage only exercise-related files, review the staged diff, run relevant checks, and update documentation whenever status, evidence, or observed failures change.
 
 ## Completion criteria
 
